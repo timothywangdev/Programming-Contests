@@ -12,3 +12,6 @@ http://codeforces.com/profile/0x00FFFFFF
 ### /uva
 UVA Judge Online solutions
 http://uhunt.felix-halim.net/id/310082
+
+### /notebook
+Common algorithms and data structures for programming contests
