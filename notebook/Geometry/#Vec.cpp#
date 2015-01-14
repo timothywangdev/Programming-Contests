@@ -1,0 +1,28 @@
+struct Vec{
+ double x,y;
+ Vec(double x,double y):x(x),y(y){}
+ Vec(P<double> A,P<double> B){
+    x=B.x-A.x;
+    y=B.y-A.y;
+ }
+ // cross product
+ double operator*(Vec &other){
+    return x*other.y-y*other.x;
+ }
+ // dot product
+ double operator*(Vec &other){
+    return x*other.x+y*other.y;
+ }
+ Vec scale(double s){
+   return Vec(x*s,y*s);
+ }
+ P<double> translate(P<double> p){
+   return P<T>(p.x+x,p.y+y);
+ }
+ double mag(){
+   return sqrt(v.x*v.x+v.y*v.y);
+ }
+ T mag_sq(){
+   return v.x*v.x+v.y*v.y;
+ }
+};
