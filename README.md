@@ -1,9 +1,14 @@
-uva
+Contest Solutions
 ===
 
+/topcoder
+Topcoder SRM Solutions
+http://community.topcoder.com/tc?module=MemberProfile&cr=23296695
+
+/codeforces
+Codeforces Solutions
+http://codeforces.com/profile/0x00FFFFFF
+
+/uva
 UVA Judge Online solutions
-
-These are my personal solutions for UVA Judge Online so far, must of them are written in C++.
-This repository will keep updating.
-
-If you don't know UVA Judge Online, please check this out http://uva.onlinejudge.org
+http://uhunt.felix-halim.net/id/310082
