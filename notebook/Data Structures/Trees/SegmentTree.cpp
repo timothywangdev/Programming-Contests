@@ -71,7 +71,7 @@ private:
 		bool chk_left = check(L, (L + R) / 2, i, j);
 		bool chk_right = check((L + R) / 2 + 1, R, i, j);
 		if (chk_left&&chk_right){
-			return rmq(left(p), L, (L + R) / 2, i, j) + rmq(right(p), (L + R) / 2 + 1, R, i, j);
+			return func->combine(rmq(left(p), L, (L + R) / 2, i, j),rmq(right(p), (L + R) / 2 + 1, R, i, j));
 		}
 		else if (chk_left){
 			return rmq(left(p), L, (L + R) / 2, i, j);
