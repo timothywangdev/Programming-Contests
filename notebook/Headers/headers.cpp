@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
-#define mt make_tuple
-#define mp make_pair
 
 using namespace std;
+
+#define mt make_tuple
+#define mp make_pair
 #define FOR(i,a,b) for(int i=(a);i<=(b);i++)
 #define FORR(i,a,b) for(int i=(b);i>=(a);i--)
 #define F(i,n) for(int i=0;i<(n);i++)
@@ -12,3 +13,7 @@ typedef tuple<int,int> TII;
 typedef pair<int,int> PII;
 typedef long long LL;
 
+int main(){
+
+   return 0;
+}
