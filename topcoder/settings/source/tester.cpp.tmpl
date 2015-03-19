@@ -31,9 +31,9 @@ using namespace std;
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     #define DISABLE_THREADS
 #endif
-#ifndef DISABLE_THREADS
-    #define DO_THREADS
-#endif
+//#ifndef DISABLE_THREADS
+    //#define DO_THREADS
+//#endif
 #ifdef DO_THREADS
    #include <unistd.h>
    #include <sys/wait.h>
