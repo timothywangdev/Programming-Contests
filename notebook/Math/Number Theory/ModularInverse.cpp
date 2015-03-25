@@ -7,9 +7,9 @@
 
 // Requires pow_mod_base2
 // O(log(MOD))
-LL Inv(LL n){
+LL inv(LL n,LL mod){
    assert(n!=0);
-   return pow_mod_base2(n,MOD-2,MOD);
+   return pow_mod_base2(n,mod-2,mod);
 }
 
 // Computing Inv(1..n) can be done in O(n) with a nice trick
