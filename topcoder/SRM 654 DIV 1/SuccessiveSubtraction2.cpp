@@ -4,47 +4,6 @@ typedef long long LL;
 typedef pair<int,int> PII;
 typedef pair<LL,LL> PLL;
 
-LL fu(vector<int> a){
-   LL f[2000][3][3];
-   memset(f,-15,sizeof(f));
-   for(int j=a.size()-1;j>=0;j--){
-      for(int open=0;open<=2;open++){
-	 for(int used=0;used<=2;used++){
-	    // if(j==0&&open==0&&used==0){
-	    //  cout<<"fuck"<<endl;
-	    // }
-	    int sign=1;
-	    if(open%2==1)sign=-1;
-	    if(j==a.size()-1){
-	       if(j==0){
-		  f[j][open][used]=sign*a[j];
-		  continue;
-	       }
-	       f[j][open][used]=(-1)*sign*a[j];
-	       continue;
-	    }
-	    if((j==0&&used>0)||(used>=j&&used>0)||(open>used)){
-	       continue;
-	    }
-	    f[j][open][used]=f[j+1][open][used];
-	    if(open-1>=0){
-	       f[j][open][used]=max(f[j][open][used],f[j+1][open-1][used]);
-	    }
-	    if(open-2>=0){
-	       f[j][open][used]=max(f[j][open][used],f[j+1][open-2][used]);
-	    }
-	    if(open+1<=2&&used<2){
-	       f[j][open][used]=max(f[j][open][used],f[j+1][open+1][used+1]);
-	    }
-	    if(j!=0)
-	       f[j][open][used]+=(-1)*sign*a[j];
-	    else
-	       f[j][open][used]+=sign*a[j];
-	 }
-      }
-   }
-   return f[0][0][0];
-}
 class SuccessiveSubtraction2 {
 public:
    vector<int> a; 
