@@ -1,3 +1,31 @@
+/*
+ Undirected Graph
+*/
+
+void getTour(int u,vector<vector<int> > &edge,vector<PII> &edge_list,
+ vector<int> &cyc){
+   while(edge[u].size()){
+      int k=edge[u][edge[u].size()-1];
+      edge[u].pop_back();
+      if(edge_list[k].first==-1)continue;
+      int v=(edge_list[k].first==u)?edge_list[k].second:edge_list[k].first;
+      edge_list[k].first=edge_list[k].second=-1;
+      getTour(v,edge,edge_list,cyc);
+      cyc.pb(u);
+   }
+}
+vector<int> EulerTour(vector<vector<int> > &edge,vector<PII> edge_list){
+   // Finding EulerTour in a undirected graph in O(E) 
+   // Note that edge[u][i] is the index of an edge in edge_list
+   // first vertex of 'cyc' is the same of the last vertex of 'cyc'
+   vector<int> cyc;
+   getTour(0,edge,edge_list,cyc);
+   return cyc;
+}
+
+/*
+ Directed Graph
+*/
 void go(int u,vector<vector<int> > &adj,vector<int> &rv){
   while(adj[u].size()!=0){
     int v=adj[u].back();
