@@ -18,3 +18,13 @@ inv[1]=1%MOD;
 for(int i=2;i<=n;i++){
    inv[i]=MOD-(inv[MOD%i]*(MOD/i))%MOD;;
 }
+
+// Computing inv(factorial[n],mod) in O(n)
+LL finv[MAXN];
+finv[0]=1;
+finv[T] = inv(factorial[T],MOD);
+for (int i = T - 1; i >= 1; i--) {
+   // n! = (n+1)! / n
+   // 1/(n!) = n * (1 / (n+1)! ) 
+   finv[i] = ( (i + 1) * finv[i+1]) % MOD;
+}

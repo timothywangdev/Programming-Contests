@@ -19,7 +19,18 @@ LL C(LL n, LL k){
    Time Complexity: O(log(mod))
 */
 LL C(LL n, LL k, LL mod){
-   if(n<k)return 0;
-   return (factorial[n]*(inv(factorial[n-k],mod)*inv(factorial[k],mod))%mod)%mod;
+    if(n<k)return 0;
+    return factorial[n]*inv(factorial[n-k],mod)%mod*inv(factorial[k],mod)%mod;
 }
 
+/*
+   C(n,k,mod) (a.k.a C(n,k) MOD mod)
+
+   Assumptions:
+   finv[n]=inv(factorial[n],mod) where factorial[n]=(n!)MOD mod
+   finv[] can be calculated in O(n) see 'ModularInverse.cpp'
+*/
+LL C(LL n, LL k, LL mod){
+    if(n<k)return 0;
+    return factorial[n]*finv[n-k]%mod*finv[k]%mod;
+}
