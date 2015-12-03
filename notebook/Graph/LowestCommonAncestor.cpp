@@ -78,7 +78,7 @@ void dfs(int u,int p, int depth){
    }
 }
 
-// get parent
+// get u's kth parent
 int get_par(int u,int k){
    for(int i=LG-1;i>=0;i--){
       if(k&(1<<i)){
