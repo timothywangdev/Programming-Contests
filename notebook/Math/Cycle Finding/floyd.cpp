@@ -1,3 +1,4 @@
+// Proof: http://blog.m-s-t.org/2015/12/07/floyds-cycle-finding-algorithm-correctness-proof/
 // Linked List Example
 
 template<typename T>

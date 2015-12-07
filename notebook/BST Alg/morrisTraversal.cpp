@@ -1,4 +1,5 @@
 /*
+ Proof:http://blog.m-s-t.org/2015/06/22/morris-traversal/
  Inorder Traversal in O(n) with space O(1)
  */
 void MorrisTraversal(TreeNode *root){
