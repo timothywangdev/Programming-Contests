@@ -5,13 +5,36 @@ using namespace std;
 #define STRICTLY_INCREASNG
 
 vector<int> LIS(vector<int> v){
-  // L[i]->first represents the smallest ending value of all length-i LIS found so far
-  // L[i]->second represents the corresponding index of that smallest ending value
-  
-  // L[i-1].first<=L[i].first as the second last element of any LIS of length i is smaller
-  // than its last element. 
-  // (the smallest ending value of LIS of length i-1 < the smallest ending value of LIS of length i) 
+  /* 	
+	O(nlogk) where k is the length of LIS
+	========================================
+   	L[i].first represents the smallest ending value of all length-i LIS found so far
+  	L[i].second represents the corresponding index of that smallest ending value
+  	========================================
+   	L[i] is always ordered on L[i].first (a.k.a L[i-1].first<=L[i].first) 
+	as the second last element of any LIS of length i is smaller(strictly increasing) [or equal(for non-increasing)]
+   	than its last element. Thus we can do binary seach on L[i].first.
+	
+        Proof(consider strictly increasing):
 
+        Suppose L[i-1].first>=L[i].first, then we can always use the second last element of LIS at L[i] to make L[i-1].first
+	smaller, which contradicts the fact L[i-1].first is the smallest ending value of all length-i LIS found so far.
+	========================================
+	Algorithm(consider strictly increasing):
+	We binary search L to determine the longest possible subsequence we can create by appending the current element v[i]--
+	simply find L[i] such that L[i].first<v[i]. Let the index of such element be j.
+
+	Case 1:
+	If v[i] is larger(or equal) than all elements in L, we can append v[i] to the largest LIS to get a larger one
+
+	Case 2:
+	otherwise, we can always update L[j+1].first = v[i], L[j+1].second=i to make L[j+1].first smaller or equal.
+	Proof:
+	Suppose the original L[j+1].first<v[i], the the binary search wound've found j+1 instead of j, a contradiction.
+	
+	Note this is a greedy strategy. By storing the LIS with smaller ending value, we maximize our ability to further extend
+	the LIS with future values.
+  */
   vector<int> parent(v.size(),-1);
   vector<pair<int,int> > L;
   for(int i=0;i<v.size();i++){
