@@ -8,11 +8,12 @@ using namespace std;
 
 a heap is a specialized tree-based data structure that satisfies the heap property: If A is a parent node of B then the key of node A is ordered with respect to the key of node B with the same ordering applying across the heap. A heap can be classified further as either a "max heap" or a "min heap". In a max heap, the keys of parent nodes are always greater than or equal to those of the children and the highest key is in the root node. In a min heap, the keys of parent nodes are less than or equal to those of the children and the lowest key is in the root node.
 
-find-min Θ(1)
-delete-min Θ(log n)
-insert Θ(log n)
-decrease-key Θ(log n)
-merge Θ(n)
+	Average	Worst case
+Space	O(n)	O(n)
+Search	O(n)	O(n)
+Insert	O(1)	O(log n)
+Delete	O(log n)O(log n)
+Peek	O(1)	O(1)
 */
 
 template <class ValueType, class compare = greater<ValueType> >
